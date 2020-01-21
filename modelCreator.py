@@ -1,6 +1,4 @@
 import tensorflow as tf
-import keras
-
 
 mnist = tf.keras.datasets.mnist
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
@@ -20,3 +18,5 @@ model.fit(x_train, y_train, epochs=3)
 
 test_loss, test_acc = model.evaluate(x_test, y_test)
 print(test_acc)
+
+model.save("model.h5")  # Saving the Model
