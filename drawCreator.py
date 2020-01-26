@@ -9,6 +9,7 @@ audioNumber = ['audio/write0.mp3', 'audio/write1.mp3', 'audio/write2.mp3', 'audi
 
 
 def number2write():
+    """This function choose and return a random number"""
     number = random.randint(0, 9)
     print(number)
 
@@ -19,6 +20,7 @@ def number2write():
 
 
 def testing(number):
+    """This function test if the number given is equal to the number handwritten"""
     model = tf.keras.models.load_model('model.h5')
     image = cv.imread('image.png', cv.IMREAD_GRAYSCALE)
     image = cv.resize(image, (28, 28))
@@ -27,8 +29,6 @@ def testing(number):
     image = 255-image
     image /= 255
     prediction = model.predict_classes(image)
-
-
 
     if prediction == number:
         pygame.mixer.music.load('audio/correct.mp3')
@@ -56,7 +56,6 @@ def program():
                 win.fill(whiteColor)
                 pygame.display.update()
                 n = number2write()
-
 
         if pygame.mouse.get_pressed()[0]:
             posx, posy = pygame.mouse.get_pos()
