@@ -4,13 +4,14 @@ import tensorflow as tf
 import cv2 as cv
 import random
 
-audioNumber = ['audio/write0.mp3', 'audio/write1.mp3', 'audio/write2.mp3', 'audio/write3.mp3', 'audio/write4.mp3',
-               'audio/write5.mp3', 'audio/write6.mp3', 'audio/write7.mp3', 'audio/write8.mp3', 'audio/write9.mp3']
+audioNumber = ['audios/write0.mp3', 'audios/write1.mp3', 'audios/write2.mp3', 'audios/write3.mp3', 'audios/write4.mp3',
+               'audios/write5.mp3', 'audios/write6.mp3', 'audios/write7.mp3', 'audios/write8.mp3', 'audios/write9.mp3']
 
 
 def number2write():
     """This function choose and return a random number"""
     number = random.randint(0, 9)
+    print("Number to write: ")
     print(number)
 
     pygame.mixer.music.load(audioNumber[number])
@@ -31,12 +32,12 @@ def testing(number):
     prediction = model.predict_classes(image)
 
     if prediction == number:
-        pygame.mixer.music.load('audio/correct.mp3')
+        pygame.mixer.music.load('audios/correct.mp3')
         pygame.mixer.music.play()
         wait_audio()
         print("Correct")
     else:
-        pygame.mixer.music.load('audio/incorrect.mp3')
+        pygame.mixer.music.load('audios/incorrect.mp3')
         pygame.mixer.music.play()
         wait_audio()
         print("Incorrect")
@@ -81,7 +82,7 @@ if __name__ == '__main__':
 
     pygame.display.set_caption("Number Learning")
     pygame.mixer.init()
-    pygame.mixer.music.load('audio/welcome.mp3')
+    pygame.mixer.music.load('audios/welcome.mp3')
     pygame.mixer.music.play()
     wait_audio()
 
@@ -90,7 +91,7 @@ if __name__ == '__main__':
     program()
 
     os.remove("image.png")
-    pygame.mixer.music.load("audio/bye.mp3")
+    pygame.mixer.music.load("audios/bye.mp3")
     pygame.mixer.music.play()
     wait_audio()
     pygame.quit()
