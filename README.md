@@ -7,7 +7,7 @@ This program ask the user through audio to write a number and check if the writt
 - pygame
 - cv2
 
-# Instructions
+# Instructions for using
 After listen the number, write it, and press enter to check if it is correct
 
 # Preview Images
